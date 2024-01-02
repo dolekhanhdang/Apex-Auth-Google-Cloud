@@ -18,10 +18,10 @@ public class JWT_Authen {
             string exp =  String.valueOf(datetime.now().addHours(1).getTime()/1000);
             string iat =  String.valueOf(datetime.now().getTime()/1000);
         	//iss	 The email address of the service account.
-            claim.writeStringField('iss', 'test-salesforce@spry-scope-404907.iam.gserviceaccount.com');
+            claim.writeStringField('iss', 'bigquery-application@turing-nimbus-409308.iam.gserviceaccount.com');
         
         	//scope	 A space-delimited list of the permissions that the application requests.
-            claim.writeStringField('scope', 'https://www.googleapis.com/auth/script');
+            claim.writeStringField('scope', 'https://www.googleapis.com/auth/drive');
         
         	//aud    Always https://accounts.google.com/o/oauth2/token
             claim.writeStringField('aud', 'https://accounts.google.com/o/oauth2/token');
@@ -38,9 +38,8 @@ public class JWT_Authen {
             String payload = EncodingUtil.Base64Encode(Blob.valueOf(header_set)) + '.' + EncodingUtil.Base64Encode(Blob.valueOf(claim_set));
         	String encode_payload = payload.replaceAll('=','');
             encode_payload = EncodingUtil.urlEncode(encode_payload,'UTF-8');
-
-            //private key - replace with your private key
-            String private_key = 'A9acTyhId=';
+        
+            String private_key = 'hmmm';
             blob private_key_decode = EncodingUtil.base64Decode(private_key);
             
             
