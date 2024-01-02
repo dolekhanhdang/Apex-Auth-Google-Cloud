@@ -38,7 +38,8 @@ public class JWT_Authen {
             String payload = EncodingUtil.Base64Encode(Blob.valueOf(header_set)) + '.' + EncodingUtil.Base64Encode(Blob.valueOf(claim_set));
         	String encode_payload = payload.replaceAll('=','');
             encode_payload = EncodingUtil.urlEncode(encode_payload,'UTF-8');
-        
+
+            //Replace your private key
             String private_key = 'hmmm';
             blob private_key_decode = EncodingUtil.base64Decode(private_key);
             
